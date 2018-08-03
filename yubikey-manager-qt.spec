@@ -1,12 +1,12 @@
 Summary:	Tool for managing your YubiKey configuration
 Summary(pl.UTF-8):	Narzędzie do zarządzania urządzeniami YubiKey
 Name:		yubikey-manager-qt
-Version:	0.5.1
+Version:	0.5.2
 Release:	1
 License:	BSD
 Group:		Applications/System
 Source0:	https://developers.yubico.com/yubikey-manager-qt/Releases/%{name}-%{version}.tar.gz
-# Source0-md5:	0e8c7e09496b18dbd70c619a1c5b733b
+# Source0-md5:	387cf107c8462819ef0fb8d81be922c5
 URL:		https://developers.yubico.com/yubikey-manager-qt/
 BuildRequires:	Qt5Core-devel >= 5
 BuildRequires:	Qt5Gui-devel >= 5
@@ -32,9 +32,7 @@ Ta aplikacja pozwala w łatwy sposób wykonać większość zadań
 konfiguracyjnych urządzeń YubiKey.
 
 %prep
-# broken tarball (tar stored as .tar.gz)
-%setup -q -c -T -n %{name}
-%{__tar} xf %{SOURCE0} -C ..
+%setup -qc
 
 %build
 qmake-qt5 yubikey-manager-qt.pro \
