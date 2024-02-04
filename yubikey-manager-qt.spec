@@ -1,38 +1,41 @@
 Summary:	Tool for managing your YubiKey configuration
 Summary(pl.UTF-8):	Narzędzie do zarządzania urządzeniami YubiKey
 Name:		yubikey-manager-qt
-Version:	0.5.2
+Version:	1.2.5
 Release:	1
 License:	BSD
 Group:		Applications/System
 Source0:	https://developers.yubico.com/yubikey-manager-qt/Releases/%{name}-%{version}.tar.gz
-# Source0-md5:	387cf107c8462819ef0fb8d81be922c5
+# Source0-md5:	036dd3f0cf2b77c68edef4c471d19c66
 URL:		https://developers.yubico.com/yubikey-manager-qt/
 BuildRequires:	Qt5Core-devel >= 5
 BuildRequires:	Qt5Gui-devel >= 5
 BuildRequires:	Qt5Qml-devel >= 5
-BuildRequires:	Qt5Quick-devel >= 5
+BuildRequires:	Qt5Quick-controls2-devel >= 5
 BuildRequires:	Qt5Widgets-devel >= 5
 BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	qt5-build >= 5
 BuildRequires:	qt5-linguist >= 5
 BuildRequires:	qt5-qmake >= 5
-Requires:	python-cryptography
-Requires:	python-fido2
+# dependencies from ykman-gui/py/yubikey.py (built into C++ qrc_resources.cpp)
+Requires:	Qt5Qml-module-pyotherside
+Requires:	python3-cryptography
+Requires:	python3-fido2
+Requires:	python3-pyscard
 # python-ykman
-Requires:	yubikey-manager >= 0.7.0
+Requires:	yubikey-manager >= 5.0.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This application provides an easy way to perform the most common
 configuration tasks on a YubiKey.
 
-%description
+%description -l pl.UTF-8
 Ta aplikacja pozwala w łatwy sposób wykonać większość zadań
 konfiguracyjnych urządzeń YubiKey.
 
 %prep
-%setup -qc
+%setup -q -n yubikey-manager-qt
 
 %build
 qmake-qt5 yubikey-manager-qt.pro \
