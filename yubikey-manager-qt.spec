@@ -11,13 +11,19 @@ URL:		https://developers.yubico.com/yubikey-manager-qt/
 BuildRequires:	Qt5Core-devel >= 5
 BuildRequires:	Qt5Gui-devel >= 5
 BuildRequires:	Qt5Qml-devel >= 5
-BuildRequires:	Qt5Quick-controls2-devel >= 5
+BuildRequires:	Qt5Quick-controls-devel >= 5
 BuildRequires:	Qt5Widgets-devel >= 5
 BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	qt5-build >= 5
 BuildRequires:	qt5-linguist >= 5
 BuildRequires:	qt5-qmake >= 5
 # dependencies from ykman-gui/py/yubikey.py (built into C++ qrc_resources.cpp)
+Requires:	Qt5Core
+Requires:	Qt5Gui
+Requires:	Qt5Qml
+Requires:	Qt5Quick-controls
+Requires:	Qt5Quick-graphicaleffects
+Requires:	Qt5Widgets
 Requires:	Qt5Qml-module-pyotherside
 Requires:	python3-cryptography
 Requires:	python3-fido2
